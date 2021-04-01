@@ -14,6 +14,8 @@
       <div class="form-group">
         <label>Body:</label>
         <input type="text" class="form-control" v-model="newPostBody" />
+        <small v-if="newPostBody.length > 0">{{ 20 - newPostBody.length }} Characters remaining</small>
+        <small v-else-if="newPostBody.length > 20">Body is too long!</small>
       </div>
       <div class="form-group">
         <label>Image:</label>
@@ -40,6 +42,7 @@ export default {
       newPostBody: "",
       newPostImage: "",
       newPostUser: "",
+      errors: {},
     };
   },
   created: function () {

@@ -36,7 +36,6 @@ export default {
   data: function () {
     return {
       post: [],
-
     };
   },
   created: function () {
@@ -44,13 +43,13 @@ export default {
   },
   methods: {
     postsEdit: function (post) {
-     var params: {
-      title: post.title,
-      body: post.body,
-      image: post.image,
-      user: post.user,
-      }
-      axios.patch("/api/posts" + this.post.id, params).then(()) => {
+      var params = {
+        title: post.title,
+        body: post.body,
+        image: post.image,
+        user: post.user,
+      };
+      axios.patch("/api/posts" + this.post.id, params).then(() => {
         console.log("Updating");
         this.$router.push("/posts");
       });
